@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.form-container {
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input,
+select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.or{
+    text-align: center;
+}
+
+.button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Expectancy and Disease Risk Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Predict Your Life Expectancy and Disease Risk</h1>
+        <p>Enter your details below:</p>
+        <!-- Form configured to use POST method -->
+        <form action="/" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age">Current Age (years):</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm), Range => (140cm - 200cm):</label>
+                    <input type="number" step="0.001" id="height" name="height" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="weight">Weight (kg), Range => (33kg - 124kg):</label>
+                    <input type="number" step="0.001" id="weight" name="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="cholesterol">Cholesterol Level (mg/dL), Range => (148.81mg/dL - 331.30mg/dL):</label>
+                    <input type="number" step="0.001" id="cholesterol" name="cholesterol" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="blood-glucose">Blood Glucose Level (mg/dL), Range => (69mg/dL - 186mg/dL):</label>
+                    <input type="number" step="0.001" id="blood-glucose" name="blood-glucose" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="bone-density">Bone Density (g/cm²), Range => (0.22g/cm² - 1.99g/cm²):</label>
+                    <input type="number" step="0.001" id="bone-density" name="bone-density" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="vision">Vision Sharpness (1.0 = Normal), Range => (0.20 - 1.06):</label>
+                    <input type="number" step="0.001" id="vision" name="vision" required>
+                </div>
+                <div class="form-group">
+                    <label for="hearing">Hearing Ability (dB), Range => (0dB - 94dB):</label>
+                    <input type="number" step="0.001" id="hearing" name="hearing" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="activity">Physical Activity Level:</label>
+                    <select id="activity" name="activity" required>
+                        <option value="0">High</option>
+                        <option value="1">Low</option>
+                        <option value="2">Moderate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="smoking">Smoking Status:</label>
+                    <select id="smoking" name="smoking" required>
+                        <option value="0">Current</option>
+                        <option value="1">Former</option>
+                        <option value="2">Never</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="alcohol">Alcohol Consumption:</label>
+                    <select id="alcohol" name="alcohol" required>
+                        <option value="0">Frequent</option>
+                        <option value="1">Occasional</option>
+                        <option value="2">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="diet">Diet Type:</label>
+                    <select id="diet" name="diet" required>
+                        <option value="0">Balanced</option>
+                        <option value="1">High-fat</option>
+                        <option value="2">Low-carb</option>
+                        <option value="3">Vegetarian</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="medication">Medication Use:</label>
+                    <select id="medication" name="medication" required>
+                        <option value="0">None</option>
+                        <option value="1">Occasional</option>
+                        <option value="2">Regular</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="family-history">Family History:</label>
+                    <select id="family-history" name="family-history" required>
+                        <option value="0">None</option>
+                        <option value="1">Diabetes</option>
+                        <option value="2">Heart Disease</option>
+                        <option value="3">Hypertension</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cognitive">Cognitive Function, Score Range => (30.30 - 106.50) :</label>
+                    <input type="number" step="0.001" id="cognitive" name="cognitive" required>
+                </div>
+                <div class="form-group">
+                    <label for="mental-health">Mental Health Status:</label>
+                    <select id="mental-health" name="mental-health" required>
+                        <option value="0">Excellent</option>
+                        <option value="1">Fair</option>
+                        <option value="2">Good</option>
+                        <option value="3">Poor</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="sleep">Sleep Patterns:</label>
+                    <select id="sleep" name="sleep" required>
+                        <option value="0">Excessive</option>
+                        <option value="1">Insomnia</option>
+                        <option value="2">Normal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="stress">Stress Levels, Range => (1 - 10) :</label>
+                    <input type="number" step="0.001" id="stress" name="stress" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pollution">Pollution Exposure, Level Range => (0 - 10) :</label>
+                    <input type="number" step="0.001" id="pollution" name="pollution" required>
+                </div>
+                <div class="form-group">
+                    <label for="sun-exposure">Sun Exposure Level, Range => (0 - 12) :</label>
+                    <input type="number" step="0.001" id="sun-exposure" name="sun-exposure" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="education">Education Level:</label>
+                    <select id="education" name="education" required>
+                        <option value="0">None</option>
+                        <option value="1">High School</option>
+                        <option value="2">Undergraduate</option>
+                        <option value="3">Postgraduate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="income">Income Level:</label>
+                    <select id="income" name="income" required>
+                        <option value="0">Low</option>
+                        <option value="1">Medium</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="submit-button">Predict</button>
+        </form>
+
+        <h1 class="or">Or,</h1>
+
+        <div class="button-container">
+            <a href="{{ url_for('cost_calculation') }}" class="btn">Click to Calculate Cost</a>
+        </div>
+    </div>
+</body>
+</html>
